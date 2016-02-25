@@ -1,3 +1,9 @@
+module Ch01.WC
+    (
+        main
+    )
+    where
+
 {-- snippet main --}
 -- lines beginning with "--" are comments.
 

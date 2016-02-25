@@ -1,3 +1,11 @@
+module Ch02.MyDrop
+    (
+        myDrop,
+        myDropX,
+        niceDrop,
+    )
+    where
+
 {-- snippet myDrop.type --}
 myDrop :: Int -> [a] -> [a]
 {-- /snippet myDrop.type --}
