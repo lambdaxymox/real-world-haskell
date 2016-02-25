@@ -1,3 +1,11 @@
+module Ch03.Add
+    (
+        add,
+        myNot,
+        sumList,
+    )
+    where
+
 {-- snippet add --}
 add a b = a + b
 {-- /snippet add --}

@@ -1,3 +1,10 @@
+module Ch03.AlgebraicVector
+    (
+        Cartesian2D(..),
+        Polar2D(..),
+    )
+    where
+
 {-- snippet types --}
 -- x and y coordinates or lengths.
 data Cartesian2D = Cartesian2D Double Double
