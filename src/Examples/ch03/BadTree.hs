@@ -1,4 +1,4 @@
-module Ch03.BadTree where
+module BadTree where
 
 import Tree
 

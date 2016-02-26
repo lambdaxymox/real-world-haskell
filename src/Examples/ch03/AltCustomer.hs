@@ -1,12 +1,3 @@
-module Ch03.AltCustomer
-    (
-        Customer(..),
-        customerID,
-        customerName,
-        customerAddress,
-    )
-    where
-
 {-- snippet Customer --}
 data Customer = Customer Int String [String]
                 deriving (Show)
