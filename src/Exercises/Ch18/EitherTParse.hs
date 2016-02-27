@@ -23,7 +23,7 @@ data ParseState =
     deriving (Show)
 
 -- This class is broken. The way EitherT is implemented is not compatible
--- with making ParseE a functor.
+-- with making ParseE a functor and also neither an Applicative nor a Monad.
 newtype ParseE a e = ParseE {
       runParseE :: EitherT e (State ParseState) a
     } --deriving (Monad, MonadState ParseState)
