@@ -9,6 +9,7 @@ module MaybeT
     , runMaybeT
     ) where
 
+import Control.Applicative
 import Control.Monad
 import Control.Monad.Trans
 import Control.Monad.State
@@ -44,7 +45,12 @@ returnMT a = MaybeT $ return (Just a)
 
 failMT :: (Monad m) => t -> MaybeT m a
 failMT _ = MaybeT $ return Nothing
- 
+
+instance (Applicative m) => Applicative (MaybeT m) where
+    pure a = MaybeT $ pure (Just a)
+    mf <*> ma = MaybeT $ (<*>) <$> runMaybeT mf <*> runMaybeT ma
+    -- mf <*> ma = MaybeT $ fmap (<*>) (runMaybeT mf) <*> runMaybeT ma
+
 instance (Monad m) => Monad (MaybeT m) where
   return = returnMT
   (>>=) = bindMT

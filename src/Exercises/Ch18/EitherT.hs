@@ -1,10 +1,10 @@
-{-# LANGUAGE FlexibleInstances, MultiParamTypeClasses,
-            UndecidableInstances #-}
+{-# LANGUAGE FlexibleInstances     #-}   
+{-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE UndecidableInstances  #-}
 
 module EitherT 
     (
-      EitherT
-    , runEitherT
+      EitherT(..)
     ) where  
     
 import Control.Monad.Trans
@@ -66,7 +66,7 @@ instance (MonadState s m) => MonadState s (EitherT e m) where
     state = \step -> get >>= \st -> return ( fst $ step st )
     -- state = \step -> \st -> return (fst $ step st) =<< get
     
-instance (Applicative m, Monoid a) => Monoid (Either e m a) where
+instance (Applicative m, Monoid a) => Monoid (EitherT e m a) where
     mempty = pure mempty
     mappend = liftA2 mappend
    

@@ -1,4 +1,3 @@
-{-- snippet Parse --}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
 module MaybeTParse
@@ -19,7 +18,7 @@ data ParseState = ParseState {
 
 newtype Parse a = P {
       runP :: MaybeT (State ParseState) a
-    } deriving (Monad, MonadState ParseState)
+    } deriving (Functor, Applicative, Monad, MonadState ParseState)
 
 evalParse :: Parse a -> L.ByteString -> Maybe a
 evalParse m s = evalState (runMaybeT (runP m)) (ParseState s 0)
